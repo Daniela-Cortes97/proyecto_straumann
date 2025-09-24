@@ -62,7 +62,6 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
           createdAt: new Date().toISOString()
         }
       };
-      
       setUser(mockUser);
       setIsAuthenticated(true);
       localStorage.setItem('dental_user', JSON.stringify(mockUser));

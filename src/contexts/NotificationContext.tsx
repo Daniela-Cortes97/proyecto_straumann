@@ -29,9 +29,7 @@ export const NotificationProvider: React.FC<{ children: React.ReactNode }> = ({ 
       fechaCreacion: new Date().toISOString(),
       leida: false
     };
-    
     setNotifications(prev => [newNotification, ...prev]);
-    
     // Auto-remove después de 5 segundos para notificaciones de éxito/info
     if (notification.tipo === 'success' || notification.tipo === 'info') {
       setTimeout(() => {

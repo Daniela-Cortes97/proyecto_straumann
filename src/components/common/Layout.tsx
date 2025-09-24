@@ -41,15 +41,10 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
           <div className="flex justify-between items-center h-16">
             {/* Logo */}
             <div className="flex items-center">
-              <Link to="/" className="flex items-center space-x-3">
-                <div className="w-10 h-10 bg-gradient-to-r from-teal-400 to-emerald-500 rounded-lg flex items-center justify-center">
-                  <Shield className="h-6 w-6 text-white" />
-                </div>
-                <div className="hidden sm:block">
-                  <h1 className="text-xl font-bold text-gray-900">DentalReg</h1>
-                  <p className="text-xs text-gray-500">Registro Profesional</p>
-                </div>
-              </Link>
+            <img
+              src="logo.png"
+              className="mx-auto mb-2 h-40"
+            />
             </div>
 
             {/* Navigation */}
@@ -72,11 +67,9 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                 );
               })}
             </nav>
-
             {/* User menu */}
             <div className="flex items-center space-x-4">
               {isAuthenticated && <NotificationBell />}
-              
               {isAuthenticated ? (
                 <div className="flex items-center space-x-3">
                   <div className="text-right">

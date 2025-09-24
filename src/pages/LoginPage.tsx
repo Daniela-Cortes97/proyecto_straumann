@@ -20,15 +20,13 @@ const LoginPage: React.FC = () => {
 
   const handleSubmit = async (values: { email: string; password: string }) => {
     setIsLoading(true);
-    
     try {
       const success = await login(values.email, values.password);
-      
       if (success) {
         addNotification({
           usuarioId: 'current',
           titulo: '¡Bienvenido!',
-          mensaje: 'Has iniciado sesión correctamente',
+          mensaje: 'Has iniciado sesión correctamente en el Grupo Straumann',
           tipo: 'success'
         });
         navigate('/dashboard');
@@ -55,7 +53,16 @@ const LoginPage: React.FC = () => {
   return (
     <div className="min-h-[80vh] flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8">
+        {/* Header con logo y nombre del grupo */}
         <div className="text-center">
+          <img
+            src="/logo.png"
+            alt="Straumann Logo"
+            className="mx-auto mb-4 h-14"
+          />
+          <h1 className="text-2xl font-bold text-emerald-700 mb-2 tracking-wide uppercase">
+            Grupo Straumann
+          </h1>
           <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-teal-400 to-emerald-500 rounded-xl flex items-center justify-center">
             <Shield className="h-8 w-8 text-white" />
           </div>
@@ -63,7 +70,7 @@ const LoginPage: React.FC = () => {
             Iniciar Sesión
           </h2>
           <p className="text-gray-600">
-            Accede a tu cuenta profesional dental
+            Accede a tu cuenta del Grupo Straumann
           </p>
         </div>
 
@@ -103,6 +110,7 @@ const LoginPage: React.FC = () => {
                       type="button"
                       onClick={() => setShowPassword(!showPassword)}
                       className="absolute inset-y-0 right-0 pr-3 flex items-center"
+                      tabIndex={-1}
                     >
                       {showPassword ? (
                         <EyeOff className="h-5 w-5 text-gray-400" />
@@ -144,7 +152,6 @@ const LoginPage: React.FC = () => {
               </Form>
             )}
           </Formik>
-          
           <div className="mt-6">
             <div className="relative">
               <div className="absolute inset-0 flex items-center">
@@ -154,13 +161,18 @@ const LoginPage: React.FC = () => {
                 <span className="px-2 bg-white text-gray-500">¿No tienes cuenta?</span>
               </div>
             </div>
-            
-            <div className="mt-6 text-center">
+            <div className="mt-6 text-center flex flex-col gap-3">
               <Link
-                to="/registro"
+                to="/registro/natural"
                 className="w-full flex justify-center py-3 px-4 border border-emerald-600 rounded-md shadow-sm text-sm font-medium text-emerald-600 hover:bg-emerald-50 transition-colors"
               >
-                Crear Cuenta Nueva
+                Crear Cuenta Profesional
+              </Link>
+              <Link
+                to="/registro/juridica"
+                className="w-full flex justify-center py-3 px-4 border border-teal-600 rounded-md shadow-sm text-sm font-medium text-teal-600 hover:bg-teal-50 transition-colors"
+              >
+                Crear Cuenta Empresa
               </Link>
             </div>
           </div>
@@ -170,7 +182,7 @@ const LoginPage: React.FC = () => {
         <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
           <h4 className="font-medium text-blue-900 mb-2">Credenciales de Demostración</h4>
           <p className="text-sm text-blue-700">
-            <strong>Email:</strong> demo@dentalreg.co<br />
+            <strong>Email:</strong> demo@straumann.co<br />
             <strong>Contraseña:</strong> demo123
           </p>
         </div>

@@ -18,17 +18,18 @@ function App() {
             <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/registro" element={<RegistroPage />} />
+              <Route path="/registro/:tipo" element={<RegistroPage />} />
               <Route path="/login" element={<LoginPage />} />
-              <Route 
-                path="/dashboard" 
+              <Route
+                path="/dashboard"
                 element={
                   <ProtectedRoute>
                     <DashboardPage />
                   </ProtectedRoute>
-                } 
+                }
               />
-              <Route 
-                path="/usuarios" 
+              <Route
+                path="/usuarios"
                 element={
                   <ProtectedRoute requiredRole="admin">
                     <div className="text-center py-20">
@@ -36,10 +37,10 @@ function App() {
                       <p className="text-gray-600">Módulo disponible próximamente</p>
                     </div>
                   </ProtectedRoute>
-                } 
+                }
               />
-              <Route 
-                path="/configuracion" 
+              <Route
+                path="/configuracion"
                 element={
                   <ProtectedRoute>
                     <div className="text-center py-20">
@@ -47,7 +48,7 @@ function App() {
                       <p className="text-gray-600">Panel de configuración disponible próximamente</p>
                     </div>
                   </ProtectedRoute>
-                } 
+                }
               />
             </Routes>
           </Layout>

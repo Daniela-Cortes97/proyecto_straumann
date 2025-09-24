@@ -33,21 +33,21 @@ export const validateCedula = (cedula: string): boolean => {
 
 export const validateNIT = (nit: string): boolean => {
   if (!nit || nit.length !== 11) return false;
-  
+
   const nitNumbers = nit.replace(/\D/g, '');
   if (nitNumbers.length !== 9) return false;
-  
+
   // Algoritmo de validación del dígito verificador del NIT
   const weights = [3, 7, 13, 17, 19, 23, 29, 37, 41];
   let sum = 0;
-  
+
   for (let i = 0; i < 9; i++) {
     sum += parseInt(nitNumbers[i]) * weights[i];
   }
-  
+
   const remainder = sum % 11;
   const verificationDigit = remainder > 1 ? 11 - remainder : remainder;
-  
+
   return verificationDigit.toString() === nit.slice(-1);
 };
 

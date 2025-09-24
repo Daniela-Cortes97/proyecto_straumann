@@ -76,18 +76,17 @@ const DashboardPage: React.FC = () => {
               <h1 className="text-2xl font-bold text-gray-900">
                 {isPersonaNatural && 'nombres' in userData
                   ? `${userData.nombres} ${userData.apellidos}`
-                  : userData.razonSocial
+                  : userData.razonsocial
                 }
               </h1>
               <p className="text-gray-600">
-                {isPersonaNatural 
+                {isPersonaNatural
                   ? `ID: ${user.id} • ${userData.profesion}`
                   : `NIT: ${userData.nit} • ${userData.tipoSociedad?.toUpperCase()}`
                 }
               </p>
             </div>
           </div>
-          
           <div className={`px-4 py-2 rounded-full flex items-center space-x-2 ${getStatusColor(userData.estado)}`}>
             <StatusIcon className="h-4 w-4" />
             <span className="text-sm font-medium capitalize">{userData.estado}</span>
@@ -118,7 +117,6 @@ const DashboardPage: React.FC = () => {
             })}
           </nav>
         </div>
-
         <div className="p-6">
           {activeTab === 'overview' && (
             <div className="space-y-6">
@@ -135,7 +133,6 @@ const DashboardPage: React.FC = () => {
                     </div>
                   </div>
                 </div>
-                
                 <div className="bg-green-50 rounded-lg p-4">
                   <div className="flex items-center">
                     <Shield className="h-8 w-8 text-green-600" />
@@ -147,7 +144,6 @@ const DashboardPage: React.FC = () => {
                     </div>
                   </div>
                 </div>
-                
                 <div className="bg-purple-50 rounded-lg p-4">
                   <div className="flex items-center">
                     <Calendar className="h-8 w-8 text-purple-600" />
@@ -165,7 +161,6 @@ const DashboardPage: React.FC = () => {
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 <div className="space-y-4">
                   <h3 className="text-lg font-semibold text-gray-900">Información de Contacto</h3>
-                  
                   {isPersonaNatural && 'telefono' in userData ? (
                     <div className="space-y-3">
                       <div className="flex items-center space-x-3">

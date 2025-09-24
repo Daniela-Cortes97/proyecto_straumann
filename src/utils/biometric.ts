@@ -12,12 +12,10 @@ export class BiometricService {
         // Check for WebAuthn support
         return true;
       }
-      
       // Verificar APIs nativas del navegador
       if ('mediaDevices' in navigator && 'getUserMedia' in navigator.mediaDevices) {
         return true;
       }
-      
       return false;
     } catch {
       return false;
